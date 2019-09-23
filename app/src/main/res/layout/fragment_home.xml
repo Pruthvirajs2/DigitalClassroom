@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".fragment.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/rectangle_redius" />
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/txt_title"
+            android:textSize="28sp"
+            android:text="Digital Classroom"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_above="@id/home_recycler"
+            android:layout_marginBottom="30dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="21sp"
+            android:text="Your Faculty"
+            android:textColor="@android:color/white"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="-45dp"
+            android:layout_below="@id/image_icon"
+            android:id="@+id/home_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+
+
+    <!-- <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+       &lt;!&ndash;  <TextView
+             android:layout_above="@id/image_icon"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textStyle="bold"
+             android:textSize="18sp"
+             android:text="Digital Classroom"
+             android:textColor="@android:color/black"/>
+ &ndash;&gt;
+         <ImageView
+             android:id="@+id/image_icon"
+             android:layout_width="match_parent"
+             android:layout_height="200dp"
+             android:src="@drawable/rectangle_redius"/>
+
+         &lt;!&ndash;<ImageView
+             android:layout_width="364dp"
+             android:layout_height="180dp"
+             android:layout_centerInParent="true"
+             android:scaleType="fitXY"
+             android:src="@drawable/home_one" />
+ &ndash;&gt;
+     </RelativeLayout>-->
+</LinearLayout>

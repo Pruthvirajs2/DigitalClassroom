@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DegitalClassroom</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description">Submit your assignment here,make sure you do this assignment on time.</string>
 </resources>
