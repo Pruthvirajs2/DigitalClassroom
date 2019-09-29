@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.example.degitalclassroom.fragment.ChatsFragment;
 import com.example.degitalclassroom.fragment.HomeFragment;
+import com.example.degitalclassroom.fragment.ProfileFragment;
+import com.example.degitalclassroom.fragment.VideosFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,21 +45,21 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new HomeFragment();
                     loadFragment(fragment);
                     return true;
-              /*  case R.id.navigation_recent:
-                    toolbar.setTitle("Recent");
-                    fragment = new RecentFragment();
+                case R.id.navigation_chat:
+                   // toolbar.setTitle("Chats");
+                    fragment = new ChatsFragment();
                     loadFragment(fragment);
                     return true;
-                case R.id.navigation_favorite:
-                    toolbar.setTitle("Favorite");
-                    fragment = new FavoriteFragment();
+                case R.id.navigation_video:
+                   // toolbar.setTitle("Videos");
+                    fragment = new VideosFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_profile:
-                    toolbar.setTitle("Profile");
+                   // toolbar.setTitle("Profile");
                     fragment = new ProfileFragment();
                     loadFragment(fragment);
-                    return true;*/
+                    return true;
             }
             return false;
         }

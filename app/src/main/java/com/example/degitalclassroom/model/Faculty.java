@@ -6,9 +6,16 @@ public class Faculty {
     private String subject;
     private String time;
     private String title;
+    private int image;
 
     public Faculty(){
 
+    }
+
+    public Faculty(String id, String name, int image) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
     }
 
     public Faculty(String id, String name) {
@@ -54,5 +61,13 @@ public class Faculty {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }
