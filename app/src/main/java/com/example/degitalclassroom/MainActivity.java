@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Home");
         setSupportActionBar(toolbar);*/
 
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
