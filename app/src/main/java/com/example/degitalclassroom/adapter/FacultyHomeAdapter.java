@@ -1,7 +1,9 @@
 package com.example.degitalclassroom.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.degitalclassroom.R;
+import com.example.degitalclassroom.activity.PDFListActivity;
 import com.example.degitalclassroom.model.Faculty;
 
 import java.util.ArrayList;
@@ -39,6 +42,16 @@ public class FacultyHomeAdapter extends RecyclerView.Adapter<FacultyHomeAdapter.
 
         final Faculty faculty = facultyArrayList.get(i);
         holder.nName.setText(faculty.getName());
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AppCompatActivity  activity = (AppCompatActivity)view.getContext();
+                Intent intent = new Intent(context, PDFListActivity.class);
+                activity.startActivity(intent);
+            }
+        });
 
     }
 
