@@ -4,4 +4,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Submit your assignment here,make sure you do this assignment on time.</string>
+    <string name="topic">Basic concepts of binary tree and B+ tree</string>
 </resources>
