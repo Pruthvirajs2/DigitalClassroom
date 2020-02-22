@@ -6,6 +6,7 @@ public class Faculty {
     private String subject;
     private String time;
     private String title;
+    private String class_name;
     private int image;
 
     public Faculty(){
@@ -21,6 +22,12 @@ public class Faculty {
     public Faculty(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Faculty(String id, String name, String class_name) {
+        this.id = id;
+        this.name = name;
+        this.class_name = class_name;
     }
 
     public String getId() {
@@ -69,5 +76,13 @@ public class Faculty {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getClass_name() {
+        return class_name;
+    }
+
+    public void setClass_name(String class_name) {
+        this.class_name = class_name;
     }
 }

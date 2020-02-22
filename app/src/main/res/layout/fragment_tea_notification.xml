@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".teacher.fragment.TeaProfileFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_icon"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/rectangle_redius" />
+
+            <!--<TextView
+                android:id="@+id/account_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/acme"
+                android:text="Logout"
+                android:textColor="@color/white"
+                android:textSize="16dp" />-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_below="@id/image_icon"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-85dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="5dp"
+                android:elevation="1dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginRight="8dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="@dimen/logo_w_h"
+                            android:layout_height="@dimen/logo_w_h"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/ic_user" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fac_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/acme"
+                            android:gravity="center"
+                            android:text="Faculty name"
+                            android:textColor="@color/primary_text"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/content_fac"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Contact number"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/circle"
+                                android:fontFamily="@font/acme"
+                                android:padding="5dp"
+                                android:text=" Faculty "
+                                android:textColor="@color/icons"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:id="@+id/email_fac"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="faculty@gmail.com"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                       <!-- <TextView
+                            android:id="@+id/coll_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="Dr. Ambedkar college,Deekshabhoomi,Nagpur"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />-->
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "599245216073",
+    "firebase_url": "https://developer-a637c.firebaseio.com",
+    "project_id": "developer-a637c",
+    "storage_bucket": "developer-a637c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599245216073:android:953dae3cc8e6230b2b6298",
+        "android_client_info": {
+          "package_name": "com.example.degitalclassroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599245216073-u618b7et20uimjlm9h20ah84thpepa0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.degitalclassroom",
+            "certificate_hash": "8853bc88c7baf220baf33654c6aaa01d1e44766e"
+          }
+        },
+        {
+          "client_id": "599245216073-72eorua1bijt2uttk8o7ujprfupv8mrc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATHU0DC3j26bxHPUbLZ_erkWtqD7A0XS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599245216073-72eorua1bijt2uttk8o7ujprfupv8mrc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

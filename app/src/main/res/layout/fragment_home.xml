@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@android:color/white"
+    android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
 
     <RelativeLayout
@@ -19,38 +19,50 @@
             android:src="@drawable/rectangle_redius" />
 
         <TextView
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="15dp"
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:id="@+id/txt_title"
-            android:textSize="28sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/droid_sans"
+            android:lineSpacingExtra="5.9sp"
+            android:padding="8dp"
             android:text="Digital Classroom"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="16.5sp" />
+
+        <ImageView
+            android:id="@+id/action_profile"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_more_vert_24dp" />
 
         <TextView
-            android:layout_marginLeft="5dp"
-            android:layout_above="@id/home_recycler"
-            android:layout_marginBottom="30dp"
-            android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="21sp"
+            android:layout_above="@id/home_recycler"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/droid_sans"
+            android:lineSpacingExtra="5.9sp"
+            android:padding="8dp"
             android:text="Your Faculty"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="16.5sp" />
 
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="-45dp"
-            android:layout_below="@id/image_icon"
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_icon"
+            android:layout_marginTop="-45dp" />
 
     </RelativeLayout>
 

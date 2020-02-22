@@ -1,169 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@android:color/white"
+    android:orientation="vertical"
     tools:context=".fragment.ProfileFragment">
 
     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/layout"
+        <ImageView
+            android:id="@+id/image_icon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="180dp"
+            android:src="@drawable/rectangle_redius" />
 
-            <ImageView
-                android:id="@+id/image_icon"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:src="@drawable/rectangle_redius" />
+        <TextView
+            android:id="@+id/account_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/acme"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
 
-            <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:layout_below="@id/image_icon"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="-85dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="1dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="290dp"
-                android:layout_marginTop="-85dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                app:cardCornerRadius="18dp"
-                android:layout_below="@id/image_icon">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginRight="8dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/logo_w_h"
+                        android:layout_height="@dimen/logo_w_h"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_user" />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/title_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/acme"
+                        android:gravity="center"
+                        android:text="Student name"
+                        android:textColor="@color/primary_text"
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/content_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Contact number"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
                     <RelativeLayout
-                        android:layout_marginTop="18dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_centerHorizontal="true"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/ic_user"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/circle"
+                            android:fontFamily="@font/acme"
+                            android:padding="5dp"
+                            android:text=" Student "
+                            android:textColor="@color/icons"
+                            android:textSize="14sp" />
 
                     </RelativeLayout>
 
-                    <LinearLayout
-                        android:layout_margin="8dp"
+
+                    <TextView
+                        android:id="@+id/school_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="21sp"
-                            android:text="Aarti Patle"
-                            android:textColor="@color/primary_text"/>
-
-                        <TextView
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:text="Student"
-                            android:textColor="@color/secondary_text"/>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_centerInParent="true"
-                                android:background="@drawable/circle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textSize="14sp"
-                                android:paddingTop="3dp"
-                                android:paddingBottom="3dp"
-                                android:paddingLeft="6dp"
-                                android:paddingRight="6dp"
-                                android:text="Change"
-                                android:textColor="@color/icons"/>
-
-                        </RelativeLayout>
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="MSC - Final year,Computer science"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
 
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="14sp"
-                            android:text="MSC - Final year,Computer science"
-                            android:textColor="@color/secondary_text"/>
-
-
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="14sp"
-                            android:text="Dr. Ambedkar college,Deekshabhoomi,Nagpur"
-                            android:textColor="@color/secondary_text"/>
-
-                    </LinearLayout>
-
+                    <TextView
+                        android:id="@+id/coll_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Dr. Ambedkar college,Deekshabhoomi,Nagpur"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
-            </android.support.v7.widget.CardView>
 
-        </RelativeLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_margin="5dp"
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <!-- <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="5dp"
+             android:padding="5dp"
+             android:text="Teachers"
+             android:textColor="@color/primary_text"
+             android:textSize="18sp" />
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/teachers_recycler"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content" />-->
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Classmates"
+            android:textColor="@color/primary_text"
+            android:textSize="18sp" />
 
-            <TextView
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Teachers"
-                android:textColor="@color/primary_text"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/teachers_recycler"/>
-
-            <TextView
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Classmates"
-                android:textColor="@color/primary_text"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/people_recycler"/>
-
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/people_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

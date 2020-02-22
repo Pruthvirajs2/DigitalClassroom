@@ -1,11 +1,12 @@
 package com.example.degitalclassroom.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.adapter.PdfListAdapter;
@@ -19,11 +20,14 @@ public class PDFListActivity extends AppCompatActivity {
     private PdfListAdapter pdfListAdapter;
     private ArrayList<Faculty> pdfArrayList = new ArrayList<>();
     private ImageView nBackImage;
+    private TextView nFacultyName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdflist);
+
+        nFacultyName = (TextView)findViewById(R.id.faculty_name_txt);
 
         nRecyclerView = (RecyclerView)findViewById(R.id.pdf_recycler);
         nRecyclerView.setHasFixedSize(true);

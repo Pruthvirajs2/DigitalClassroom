@@ -1,31 +1,29 @@
-package com.example.degitalclassroom;
+package com.example.degitalclassroom.ui;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+
+import com.example.degitalclassroom.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.degitalclassroom.fragment.ChatsFragment;
+import com.example.degitalclassroom.fragment.attendanceFragment;
 import com.example.degitalclassroom.fragment.HomeFragment;
 import com.example.degitalclassroom.fragment.ProfileFragment;
-import com.example.degitalclassroom.fragment.VideosFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class StudentActivity extends AppCompatActivity {
 
-   // private Toolbar toolbar;
+    // private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-       /* toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Home");
-        setSupportActionBar(toolbar);*/
+        setContentView(R.layout.activity_student);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -42,25 +40,25 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                 //   toolbar.setTitle("Home");
+                    //   toolbar.setTitle("Home");
                     fragment = new HomeFragment();
                     loadFragment(fragment);
                     return true;
-                case R.id.navigation_chat:
-                   // toolbar.setTitle("Chats");
-                    fragment = new ChatsFragment();
+                case R.id.navigation_attendance:
+                    // toolbar.setTitle("Chats");
+                    fragment = new attendanceFragment();
                     loadFragment(fragment);
                     return true;
-                case R.id.navigation_video:
+               /* case R.id.navigation_video:
                    // toolbar.setTitle("Videos");
                     fragment = new VideosFragment();
                     loadFragment(fragment);
-                    return true;
-                case R.id.navigation_profile:
+                    return true;*/
+               /* case R.id.navigation_profile:
                    // toolbar.setTitle("Profile");
                     fragment = new ProfileFragment();
                     loadFragment(fragment);
-                    return true;
+                    return true;*/
             }
             return false;
         }

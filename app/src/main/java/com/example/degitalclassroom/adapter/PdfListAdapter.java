@@ -2,9 +2,9 @@ package com.example.degitalclassroom.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +30,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
     @NonNull
     @Override
     public PdfListAdapter.HolderView onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pdf_item_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.document_item_list, viewGroup, false);
         context = viewGroup.getContext();
         return new HolderView(view);
     }
@@ -44,7 +44,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
         holder.nName.setText(faculty.getName());
         // holder.nProfileImage.setImageResource(faculty.getImage());
 
-        holder.view.setOnClickListener(new View.OnClickListener() {
+        /*holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -52,7 +52,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
                 Intent intent = new Intent(context, DetailsPdfActivity.class);
                 activity.startActivity(intent);
             }
-        });
+        });*/
     }
 
     @Override
@@ -64,7 +64,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
 
         private View view;
         private TextView nName,nTime,nTopic;
-        private ImageView nProfileImage;
+        private ImageView nImage;
 
         public HolderView(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +73,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
             nName = (TextView) view.findViewById(R.id.teacher_name);
             nTime = (TextView) view.findViewById(R.id.timestamp);
             nTopic = (TextView) view.findViewById(R.id.topic);
-            nProfileImage = (ImageView) view.findViewById(R.id.profile_icon);
+            nImage = (ImageView) view.findViewById(R.id.profile_icon);
 
         }
     }

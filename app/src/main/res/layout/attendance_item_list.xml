@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/icon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/icon"
+            android:fontFamily="@font/droid_sans"
+            android:lineSpacingExtra="3.5sp"
+            android:textSize="16.5sp"
+            tools:text="Android development" />
+
+        <TextView
+            android:id="@+id/text_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_name"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/icon"
+            android:fontFamily="@font/droid_sans"
+            android:lineSpacingExtra="3sp"
+            android:textSize="14.1sp"
+            tools:text="Stable Version 3.5" />
+
+        <Switch
+            android:id="@+id/item_marked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked="true" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

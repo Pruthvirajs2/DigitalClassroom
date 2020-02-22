@@ -1,8 +1,8 @@
 package com.example.degitalclassroom.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +39,7 @@ public class PeopleProfileAdapter extends RecyclerView.Adapter<PeopleProfileAdap
 
         final Faculty faculty = peopleArrayList.get(i);
         holder.nName.setText(faculty.getName());
+        holder.nClass.setText(faculty.getClass_name());
        // holder.nProfileImage.setImageResource(faculty.getImage());
 
     }
@@ -51,7 +52,7 @@ public class PeopleProfileAdapter extends RecyclerView.Adapter<PeopleProfileAdap
     public class HolderView extends RecyclerView.ViewHolder {
 
         private View view;
-        private TextView nName;
+        private TextView nName,nClass;
         private ImageView nProfileImage;
 
         public HolderView(@NonNull View itemView) {
@@ -59,6 +60,7 @@ public class PeopleProfileAdapter extends RecyclerView.Adapter<PeopleProfileAdap
 
             view = itemView;
             nName = (TextView) view.findViewById(R.id.person_name);
+            nClass = (TextView) view.findViewById(R.id.class_name);
             nProfileImage = (ImageView) view.findViewById(R.id.profile_icon);
 
         }
