@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class TeacherProfileActivity extends AppCompatActivity {
 
-    public static final String TAG = TeachersActivity.class.getSimpleName();
+    public static final String TAG = TeacherProfileActivity.class.getSimpleName();
     private FirebaseAuth auth;
 
     private DatabaseReference mFirebaseDatabase;
@@ -33,7 +33,8 @@ public class TeacherProfileActivity extends AppCompatActivity {
     private SessionManager session;
 
     private LinearLayout profile;
-    private TextView nName,nEmail,nCity;
+    private TextView nName, nEmail, nCity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,9 @@ public class TeacherProfileActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: " + auth.getUid());
 
         profile = (LinearLayout) findViewById(R.id.teacher_logout);
+        nName = (TextView) findViewById(R.id.user_name_);
+        nEmail = (TextView) findViewById(R.id.email_);
+        nCity = (TextView) findViewById(R.id.city_);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +77,9 @@ public class TeacherProfileActivity extends AppCompatActivity {
                         if (user != null) {
                             if (user.getId().contentEquals(Objects.requireNonNull(auth.getUid()))) {
                                 Log.d(TAG, "onDataChange: " + user.toString());
+                                nName.setText(user.getFirst_name() + " " + user.getLast_name());
+                                nEmail.setText(user.getEmail());
+                                nCity.setText(user.getAddress());
                             }
                         }
                     }
@@ -84,9 +91,6 @@ public class TeacherProfileActivity extends AppCompatActivity {
 
             }
         });
-        nName = (TextView) findViewById(R.id.user_name_);
-        nEmail = (TextView) findViewById(R.id.email_);
-        nCity = (TextView) findViewById(R.id.city_);
 
     }
 }

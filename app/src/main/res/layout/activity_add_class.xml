@@ -8,24 +8,48 @@
     android:orientation="vertical"
     tools:context=".teacher.activity.AddClassActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
-        tools:ignore="MissingConstraints">
+        android:layout_height="44dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light"
-            app:title="Add New Classroom">
+        <ImageView
+            android:id="@+id/back_image"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_navigate_before_black_24dp" />
 
-        </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/primary_text"
+            android:fontFamily="@font/droid_sans"
+            android:lineSpacingExtra="3.5sp"
+            android:text="Add New Class"
+            android:textSize="16.5sp" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <Button
+            android:id="@+id/add_class"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_alignParentEnd="true"
+            android:scaleType="center"
+            android:textColor="@color/primary_text"
+            android:text="Create"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F2F2F2" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -55,16 +79,6 @@
                     android:lines="1"
                     android:textSize="16.5sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/save_data_"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/circle"
-                android:text="Submit"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
 
             <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/spin_kit"

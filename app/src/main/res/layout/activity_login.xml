@@ -12,9 +12,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
+        android:orientation="vertical">
 
 
         <ImageView
@@ -22,10 +23,10 @@
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@drawable/edu" />
+            android:src="@mipmap/ic_launcher" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="339dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
@@ -41,7 +42,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="339dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
@@ -61,7 +62,7 @@
         <Button
             android:id="@+id/btn_login"
             style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="339dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16.5sp"
             android:fontFamily="@font/droid_sans"
@@ -70,7 +71,7 @@
 
         <Button
             android:id="@+id/btn_reset_password"
-            android:layout_width="339dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12sp"
             android:background="@null"
@@ -83,7 +84,7 @@
 
         <Button
             android:id="@+id/btn_signup"
-            android:layout_width="@dimen/margin_width_339"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14.5sp"
             android:background="@null"
@@ -95,7 +96,6 @@
 
         <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/spin_kit"
-
             style="@style/SpinKitView.FadingCircle"
             android:layout_width="30dp"
             android:layout_height="30dp"

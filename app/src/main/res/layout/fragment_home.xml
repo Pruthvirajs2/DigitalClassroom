@@ -3,94 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/primary_text"
     android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
 
     <RelativeLayout
-        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/image_icon"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:src="@drawable/rectangle_redius" />
+        android:layout_height="44dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp">
 
         <TextView
-            android:id="@+id/txt_title"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="5dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             android:fontFamily="@font/droid_sans"
-            android:lineSpacingExtra="5.9sp"
-            android:padding="8dp"
+            android:lineSpacingExtra="3.5sp"
             android:text="Digital Classroom"
-            android:textColor="@android:color/white"
+            android:textColor="#F3F3F3"
             android:textSize="16.5sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
 
         <ImageView
-            android:id="@+id/action_profile"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="5dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_more_vert_24dp" />
-
-        <TextView
+            android:id="@+id/background_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/home_recycler"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/droid_sans"
-            android:lineSpacingExtra="5.9sp"
-            android:padding="8dp"
-            android:text="Your Faculty"
-            android:textColor="@android:color/white"
-            android:textSize="16.5sp" />
-
+            android:layout_height="match_parent"
+            android:src="@drawable/pdf_rectangle" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/image_icon"
-            android:layout_marginTop="-45dp" />
-
+            android:layout_height="match_parent"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="23dp" />
     </RelativeLayout>
 
-    <!-- <RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content">
 
-       &lt;!&ndash;  <TextView
-             android:layout_above="@id/image_icon"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:textStyle="bold"
-             android:textSize="18sp"
-             android:text="Digital Classroom"
-             android:textColor="@android:color/black"/>
- &ndash;&gt;
-         <ImageView
-             android:id="@+id/image_icon"
-             android:layout_width="match_parent"
-             android:layout_height="200dp"
-             android:src="@drawable/rectangle_redius"/>
-
-         &lt;!&ndash;<ImageView
-             android:layout_width="364dp"
-             android:layout_height="180dp"
-             android:layout_centerInParent="true"
-             android:scaleType="fitXY"
-             android:src="@drawable/home_one" />
- &ndash;&gt;
-     </RelativeLayout>-->
 </LinearLayout>

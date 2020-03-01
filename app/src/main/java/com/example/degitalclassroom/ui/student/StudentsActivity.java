@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.activity.DetailsPdfActivity;
+import com.example.degitalclassroom.custom.DividerItemDecoration;
 import com.example.degitalclassroom.helper.SessionManager;
 import com.example.degitalclassroom.model.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,26 +69,53 @@ public class StudentsActivity extends AppCompatActivity {
 
         mStudentRecyclerView.setHasFixedSize(true);
         mStudentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mStudentRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
-        usersReference.addValueEventListener(new ValueEventListener() {
+        mFirebaseInstance.getReference("users").child(auth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mUserArrayList.clear();
-                if (snapshot.exists()) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                    for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                        //getting User from firebase console
-                        User user = postSnapshot.getValue(User.class);
-                        if (user != null && user.getClassName() != null) {
-                            mUserArrayList.add(0, user);
+                if (dataSnapshot.exists()) {
+
+                    final User currentUser = dataSnapshot.getValue(User.class);
+
+                    usersReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            mUserArrayList.clear();
+                            if (snapshot.exists()) {
+
+
+                                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                                    //getting User from firebase console
+                                    User user = postSnapshot.getValue(User.class);
+
+                                    if (user != null) {
+
+                                        if (user.getDesignation().equals("Student") && currentUser.getClassName().equals(user.getClassName())) {
+                                            mUserArrayList.add(0, user);
+
+                                        }
+                                    }
+
+                                }
+
+                                studentItemAdapter = new StudentItemAdapter(mUserArrayList, StudentsActivity.this);
+                                mStudentRecyclerView.setAdapter(studentItemAdapter);
+                                studentItemAdapter.notifyDataSetChanged();
+
+                            }
 
                         }
-                    }
 
-                    studentItemAdapter = new StudentItemAdapter(mUserArrayList, StudentsActivity.this);
-                    mStudentRecyclerView.setAdapter(studentItemAdapter);
-                    studentItemAdapter.notifyDataSetChanged();
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            Toast.makeText(StudentsActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
 
                 }
 
@@ -96,9 +124,9 @@ public class StudentsActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(StudentsActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 

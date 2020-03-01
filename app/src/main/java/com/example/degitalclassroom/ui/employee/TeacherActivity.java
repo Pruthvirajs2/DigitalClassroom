@@ -1,4 +1,4 @@
-package com.example.degitalclassroom.teacher;
+package com.example.degitalclassroom.ui.employee;
 
 import androidx.annotation.NonNull;
 
@@ -12,21 +12,19 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.degitalclassroom.R;
-import com.example.degitalclassroom.teacher.fragment.TeaHomeFragment;
-import com.example.degitalclassroom.teacher.fragment.TeaProfileFragment;
-import com.example.degitalclassroom.teacher.fragment.TeaDocumentsFragment;
+import com.example.degitalclassroom.teacher.fragment.TeacherHomeFragment;
 
-public class TeacherMainActivity extends AppCompatActivity {
+public class TeacherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_main);
+        setContentView(R.layout.activity_teacher);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        loadFragment(new TeaHomeFragment());
+        loadFragment(new TeacherHomeFragment());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -38,11 +36,11 @@ public class TeacherMainActivity extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fragment = new TeaHomeFragment();
+                    fragment = new TeacherHomeFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_document:
-                    fragment = new TeaDocumentsFragment();
+                    fragment = new TeacherFeedsFragment();
                     loadFragment(fragment);
                     return true;
             }

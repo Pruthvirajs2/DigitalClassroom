@@ -13,7 +13,7 @@ public class User {
     private String contact;
     private String avatar;
     private String className;
-
+    private boolean checkAttendance;
 
     public User() {
     }
@@ -122,5 +122,11 @@ public class User {
         this.className = className;
     }
 
+    public boolean isCheckAttendance() {
+        return checkAttendance;
+    }
 
+    public void setCheckAttendance(boolean checkAttendance) {
+        this.checkAttendance = checkAttendance;
+    }
 }

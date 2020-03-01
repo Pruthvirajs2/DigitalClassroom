@@ -16,8 +16,8 @@
          android:icon="@drawable/ic_overflowing"
          android:title="Videos" />-->
 
-    <!--   <item
+       <item
            android:id="@+id/navigation_profile"
            android:icon="@drawable/ic_user"
-           android:title="Profile" />-->
+           android:title="Profile" />
 </menu>

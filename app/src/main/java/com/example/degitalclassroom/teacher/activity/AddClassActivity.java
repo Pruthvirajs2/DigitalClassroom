@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class AddClassActivity extends AppCompatActivity {
     private ClassroomAdapter mClassroomAdapter;
     private Button nSave;
 
+    ImageView closeImageView;
     private SpinKitView progressBar;
 
     private DatabaseReference mFirebaseDatabase;
@@ -130,7 +132,7 @@ public class AddClassActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mClassrooms.clear();
-                if (snapshot != null) {
+                if (snapshot.exists()) {
 
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
@@ -149,18 +151,23 @@ public class AddClassActivity extends AppCompatActivity {
 
             }
         });
+
+        closeImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     //this method is used to connect XML views to its Objects
     private void initViews() {
         inputClassroom = (TextInputEditText) findViewById(R.id.editTextClassName);
         layoutClassroom = (TextInputLayout) findViewById(R.id.textInputLayoutClass);
-
         mClassroomRecyclerView = (RecyclerView) findViewById(R.id.classroom_list);
-
         progressBar = (SpinKitView) findViewById(R.id.spin_kit);
-
-        nSave = (Button) findViewById(R.id.save_data_);
+        nSave = (Button) findViewById(R.id.add_class);
+        closeImageView = (ImageView) findViewById(R.id.back_image);
     }
 
     //This method is used to validate input given by user

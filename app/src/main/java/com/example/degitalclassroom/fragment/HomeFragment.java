@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.adapter.FacultyHomeAdapter;
+import com.example.degitalclassroom.custom.DividerItemDecoration;
 import com.example.degitalclassroom.helper.SessionManager;
 import com.example.degitalclassroom.model.Faculty;
 import com.example.degitalclassroom.model.User;
@@ -45,7 +46,6 @@ public class HomeFragment extends Fragment {
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
 
-    private ImageView profileImageView;
     private String userId;
     private SessionManager session;
 
@@ -68,19 +68,65 @@ public class HomeFragment extends Fragment {
         mFirebaseInstance = FirebaseDatabase.getInstance();
         // get reference to 'users' node
         mFirebaseDatabase = mFirebaseInstance.getReference("users");
+        mFirebaseDatabase.keepSynced(true);
 
-        profileImageView = (ImageView) view.findViewById(R.id.action_profile);
 
         nRecyclerView = (RecyclerView) view.findViewById(R.id.home_recycler);
         nRecyclerView.setHasFixedSize(true);
-        nRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        nRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        nRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
 
-        profileImageView.setOnClickListener(new View.OnClickListener() {
+        mFirebaseInstance.getReference("users").child(auth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), StudentProfileActivity.class));
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()) {
+                    final User currentUser = dataSnapshot.getValue(User.class);
+
+                    mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            facultyArrayList.clear();
+                            if (dataSnapshot.exists()) {
+
+                                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                    //getting User from firebase console
+                                    User user = postSnapshot.getValue(User.class);
+
+                                    if (user != null) {
+
+                                        if (user.getDesignation().equals("Teacher") && currentUser.getClassName().equals(user.getClassName())) {
+                                            facultyArrayList.add(user);
+                                        }
+                                    }
+
+
+                                }
+
+                                facultyHomeAdapter = new FacultyHomeAdapter(getContext(), facultyArrayList);
+                                nRecyclerView.setAdapter(facultyHomeAdapter);
+                                facultyHomeAdapter.notifyDataSetChanged();
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
+
+
         return view;
     }
 
@@ -89,32 +135,6 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                facultyArrayList.clear();
-                if (dataSnapshot.exists()) {
 
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        //getting User from firebase console
-                        User user = postSnapshot.getValue(User.class);
-                        assert user != null;
-                        if (user.getDesignation().equals("Employee")) {
-                            facultyArrayList.add(user);
-                        }
-                    }
-
-                    facultyHomeAdapter = new FacultyHomeAdapter(getContext(), facultyArrayList);
-                    nRecyclerView.setAdapter(facultyHomeAdapter);
-                    facultyHomeAdapter.notifyDataSetChanged();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 }

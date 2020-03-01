@@ -3,30 +3,29 @@ package com.example.degitalclassroom.model;
 public class Attendance {
 
 
-    String uniqueId;
+    String id;
     String studentId;
     String date;
-    String sectionId;
-    String status;
+    boolean checkAttendance;
 
 
     public Attendance() {
     }
 
-    public Attendance(String uniqueId, String studentId, String date, String sectionId, String status) {
-        this.uniqueId = uniqueId;
+
+    public Attendance(String id, String studentId, String date, boolean checkAttendance) {
+        this.id = id;
         this.studentId = studentId;
         this.date = date;
-        this.sectionId = sectionId;
-        this.status = status;
+        this.checkAttendance = checkAttendance;
     }
 
-    public String getUniqueId() {
-        return uniqueId;
+    public String getId() {
+        return id;
     }
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getStudentId() {
@@ -45,19 +44,22 @@ public class Attendance {
         this.date = date;
     }
 
-    public String getSectionId() {
-        return sectionId;
+    public boolean isCheckAttendance() {
+        return checkAttendance;
     }
 
-    public void setSectionId(String sectionId) {
-        this.sectionId = sectionId;
+    public void setCheckAttendance(boolean checkAttendance) {
+        this.checkAttendance = checkAttendance;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "Attendance{" +
+                "id='" + id + '\'' +
+                ", studentId='" + studentId + '\'' +
+                ", date='" + date + '\'' +
+                ", checkAttendance=" + checkAttendance +
+                '}';
     }
 }
+

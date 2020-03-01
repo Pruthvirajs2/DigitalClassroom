@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "599245216073-84qg9bj6ndkvfggge5m6lo7on78t1u65.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.degitalclassroom",
+            "certificate_hash": "6d1a55d02f7b34735bbf3bed6356e9170f5d35cc"
+          }
+        },
+        {
           "client_id": "599245216073-u618b7et20uimjlm9h20ah84thpepa0q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

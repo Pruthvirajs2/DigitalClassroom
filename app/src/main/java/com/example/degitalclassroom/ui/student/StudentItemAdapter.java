@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.model.User;
 
@@ -40,6 +42,11 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
         holder.txtClassName.setText(user.getClassName());
         holder.txtContactInfo.setText(user.getEmail());
 
+        Glide.with(mContext)
+                .load(R.drawable.avatar)
+                .centerCrop()
+                .into(holder.profileIcon);
+
     }
 
     @Override
@@ -49,6 +56,7 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
 
     public class StdudentViewHolder extends RecyclerView.ViewHolder {
 
+        ImageView profileIcon;
         TextView txtStudentName, txtClassName, txtContactInfo;
         View view;
 
@@ -57,6 +65,7 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
 
             view = itemView;
 
+            profileIcon = (ImageView) view.findViewById(R.id.icon);
             txtStudentName = (TextView) view.findViewById(R.id.student_name);
             txtClassName = (TextView) view.findViewById(R.id.class_name);
             txtContactInfo = (TextView) view.findViewById(R.id.contact_info);

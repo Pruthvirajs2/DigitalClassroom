@@ -26,6 +26,7 @@ import com.example.degitalclassroom.custom.DividerItemDecoration;
 import com.example.degitalclassroom.helper.SessionManager;
 import com.example.degitalclassroom.interfaces.OnItemClickListener;
 import com.example.degitalclassroom.model.Subject;
+import com.example.degitalclassroom.model.User;
 import com.example.degitalclassroom.teacher.activity.AddStudentActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,7 +48,7 @@ public class SubjectActivity extends AppCompatActivity {
     RecyclerView mSubjectRecyclerView;
 
     private FirebaseAuth auth;
-    private DatabaseReference subjectReference, classReference;
+    private DatabaseReference subjectReference, classReference, userReference;
     private FirebaseDatabase mFirebaseInstance;
     private SessionManager session;
 
@@ -65,6 +66,7 @@ public class SubjectActivity extends AppCompatActivity {
         // get reference
         subjectReference = mFirebaseInstance.getReference("Subject");
         classReference = mFirebaseInstance.getReference("Classroom");
+        userReference = mFirebaseInstance.getReference("users");
 
 
         initViews();
@@ -82,39 +84,69 @@ public class SubjectActivity extends AppCompatActivity {
         mSubjectRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mSubjectRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
-        subjectReference.addValueEventListener(new ValueEventListener() {
+
+        userReference.child(auth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                mSubjects.clear();
-                if (snapshot.exists()) {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
-                        Subject subject = dataSnapshot.getValue(Subject.class);
-                        mSubjects.add(0, subject);
-                    }
+                if (dataSnapshot.exists()) {
 
-                    subjectItemAdapter = new SubjectItemAdapter(mSubjects, SubjectActivity.this, new OnItemClickListener() {
+                    final User currentUser = dataSnapshot.getValue(User.class);
+
+                    subjectReference.addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onItemClick(View view, int position) {
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                            Toast.makeText(SubjectActivity.this, mSubjects.get(position).getSubName(), Toast.LENGTH_SHORT).show();
+                            mSubjects.clear();
+                            if (snapshot.exists()) {
+                                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
+                                    Subject subject = dataSnapshot.getValue(Subject.class);
+
+                                    if (subject != null) {
+
+                                        if (currentUser.getClassName().equals(subject.getClassName())) {
+
+                                            mSubjects.add(0, subject);
+
+                                        }
+
+                                    }
+
+                                }
+
+                                subjectItemAdapter = new SubjectItemAdapter(mSubjects, SubjectActivity.this, new OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(View view, int position) {
+
+                                        Toast.makeText(SubjectActivity.this, mSubjects.get(position).getSubName(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                                mSubjectRecyclerView.setAdapter(subjectItemAdapter);
+                                subjectItemAdapter.notifyDataSetChanged();
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            Toast.makeText(SubjectActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
 
-                    mSubjectRecyclerView.setAdapter(subjectItemAdapter);
-                    subjectItemAdapter.notifyDataSetChanged();
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(SubjectActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
 
         previousView.setOnClickListener(new View.OnClickListener() {
             @Override

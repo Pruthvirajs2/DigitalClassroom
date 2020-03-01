@@ -1,36 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
     <LinearLayout
-       android:layout_margin="8dp"
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/profile_icon"
-                android:src="@drawable/unavailable"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -38,38 +25,94 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_centerVertical="true"
+                    android:id="@+id/titleName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:id="@+id/teacher_name"
-                    android:text="Neha Roy"
-                    android:textColor="@color/primary_text"/>
+                    android:fontFamily="@font/droid_sans"
+                    android:lineSpacingExtra="3.5sp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="16.5sp"
+                    tools:text="Content" />
 
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/droid_sans"
+                android:lineSpacingExtra="5.9sp"
+                android:textColor="@color/primary_text"
                 android:textSize="14sp"
-                android:id="@+id/topic"
-                android:text="@string/topic"
-                android:textColor="@color/primary_text"/>
+                tools:text="subject Name" />
 
             <TextView
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
+                android:id="@+id/timestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/droid_sans"
+                android:lineSpacingExtra="2.5sp"
+                android:textColor="@color/secondary_text"
                 android:textSize="12sp"
-                android:id="@+id/timestamp"
-                android:text="12 Aug 2019"
-                android:textColor="@color/secondary_text"/>
+                tools:text="timestamp" />
 
 
         </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/document_layout"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_picture_as_pdf_black_24dp" />
+
+            <TextView
+                android:id="@+id/file_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/droid_sans"
+                android:lineSpacingExtra="3.5sp"
+                android:text="@string/file_attachment"
+                android:textColor="@color/primary_text"
+                android:textSize="16.5sp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <com.example.degitalclassroom.custom.SquareImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
+
 
 </LinearLayout>

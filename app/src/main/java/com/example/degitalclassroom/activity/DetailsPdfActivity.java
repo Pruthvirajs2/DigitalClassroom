@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.degitalclassroom.R;
-import com.example.degitalclassroom.teacher.TeacherMainActivity;
+import com.example.degitalclassroom.ui.employee.TeacherActivity;
 
 public class DetailsPdfActivity extends AppCompatActivity {
 
@@ -40,7 +40,7 @@ public class DetailsPdfActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(DetailsPdfActivity.this, TeacherMainActivity.class);
+                Intent intent = new Intent(DetailsPdfActivity.this, TeacherActivity.class);
                 startActivity(intent);
             }
         });

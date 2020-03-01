@@ -35,6 +35,7 @@
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
 
     <string name="desk_prompt">Choose a designation</string>
+    <string name="file_attachment"><u>Click here to see attached document.</u></string>
 
     <string-array name="desk_array">
         <item>Default</item>

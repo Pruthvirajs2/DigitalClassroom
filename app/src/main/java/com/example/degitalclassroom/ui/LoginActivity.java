@@ -7,18 +7,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.degitalclassroom.R;
+import com.example.degitalclassroom.custom.PermissionModule;
 import com.example.degitalclassroom.helper.SessionManager;
-import com.example.degitalclassroom.model.Student;
 import com.example.degitalclassroom.model.User;
-import com.example.degitalclassroom.teacher.TeacherMainActivity;
+import com.example.degitalclassroom.ui.employee.TeacherActivity;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -57,6 +55,9 @@ public class LoginActivity extends AppCompatActivity {
         // Session manager
         session = new SessionManager(getApplicationContext());
 
+        PermissionModule permissionModule = new PermissionModule(this);
+        permissionModule.checkPermissions();
+
        /* if (auth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, StudentActivity.class));
             finish();
@@ -68,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (session.getAuthorization().equals("Teacher")) {
 
-                Intent intent = new Intent(LoginActivity.this, TeacherMainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
                 startActivity(intent);
                 this.finish();
 
@@ -159,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
                                                             if (user.getDesignation().equals("Teacher")) {
                                                                 session.setLogin(true);
                                                                 session.setAuthorization("Teacher");
-                                                                Intent intent = new Intent(LoginActivity.this, TeacherMainActivity.class);
+                                                                Intent intent = new Intent(LoginActivity.this, TeacherActivity.class);
                                                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                                 startActivity(intent);
                                                                 finish();
@@ -199,5 +200,11 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

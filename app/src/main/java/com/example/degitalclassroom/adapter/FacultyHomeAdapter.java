@@ -50,35 +50,18 @@ public class FacultyHomeAdapter extends RecyclerView.Adapter<FacultyHomeAdapter.
         holder.nTime.setText(user.getContact());
         holder.nTitle.setText(user.getAddress());
 
-        if (!user.getAvatar().contentEquals("Default")) {
-            Glide.with(context).load(user.getAvatar())
-                    .placeholder(R.drawable.avatar)
-                    .into(holder.nProfileImage);
+        Glide.with(context)
+                .load(R.drawable.avatar)
+                .centerCrop()
+                .into(holder.nProfileImage);
 
-            holder.view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                    Intent intent = new Intent(context, PDFListActivity.class);
-                    activity.startActivity(intent);
-                }
-            });
-        } else {
-            Glide.with(context).load(R.drawable.avatar)
-                    .into(holder.nProfileImage);
-
-            holder.view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                    Intent intent = new Intent(context, PDFListActivity.class);
-                    activity.startActivity(intent);
-                }
-            });
-        }
-
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, PDFListActivity.class)
+                        .putExtra("userid", user.getId()));
+            }
+        });
 
     }
 

@@ -40,19 +40,7 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
 
         holder.setIsRecyclable(false);
 
-        final Faculty faculty = pdfArrayList.get(i);
-        holder.nName.setText(faculty.getName());
-        // holder.nProfileImage.setImageResource(faculty.getImage());
 
-        /*holder.view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                AppCompatActivity  activity = (AppCompatActivity)view.getContext();
-                Intent intent = new Intent(context, DetailsPdfActivity.class);
-                activity.startActivity(intent);
-            }
-        });*/
     }
 
     @Override
@@ -63,17 +51,10 @@ public class PdfListAdapter extends RecyclerView.Adapter<PdfListAdapter.HolderVi
     public class HolderView extends RecyclerView.ViewHolder {
 
         private View view;
-        private TextView nName,nTime,nTopic;
-        private ImageView nImage;
 
         public HolderView(@NonNull View itemView) {
             super(itemView);
-
             view = itemView;
-            nName = (TextView) view.findViewById(R.id.teacher_name);
-            nTime = (TextView) view.findViewById(R.id.timestamp);
-            nTopic = (TextView) view.findViewById(R.id.topic);
-            nImage = (ImageView) view.findViewById(R.id.profile_icon);
 
         }
     }

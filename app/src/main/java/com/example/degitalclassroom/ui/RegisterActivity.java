@@ -13,14 +13,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.model.User;
-import com.example.degitalclassroom.teacher.TeacherMainActivity;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -79,7 +76,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
 
         deskSpinner.setOnItemSelectedListener(this);
-
 
         //Creating the ArrayAdapter instance having the register list
         ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, register);
@@ -178,9 +174,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                     userMapping = new User(
                                             auth.getUid(), username, firstName, lastName,
                                             "Default", desk, email, "dd/mm/yyyy", mobileNumber,
-                                            "icon", ""
+                                            "icon", className
                                     );
-                                    mFirebaseDatabase.child(userId).setValue(userMapping);
+                                    mFirebaseDatabase.child(auth.getUid()).setValue(userMapping);
 
                                 }
                                 if (desk.equals("Student")) {
@@ -190,7 +186,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                                             "Default", desk, email, "dd/mm/yyyy", mobileNumber,
                                             "icon", className
                                     );
-                                    mFirebaseDatabase.child(userId).setValue(userMapping);
+                                    mFirebaseDatabase.child(auth.getUid()).setValue(userMapping);
 
                                 }
 
@@ -226,7 +222,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 classLayout.setVisibility(View.GONE);
                 break;
             case 1:
-                classLayout.setVisibility(View.GONE);
+                classLayout.setVisibility(View.VISIBLE);
                 break;
             case 2:
                 classLayout.setVisibility(View.VISIBLE);
