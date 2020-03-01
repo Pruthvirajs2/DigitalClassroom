@@ -18,12 +18,15 @@
 
         <TextView
             android:id="@+id/text_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/droid_sans"
+            android:layout_toRightOf="@id/close_dialog"
+            android:ellipsize="end"
+            android:fontFamily="@font/droid_sans_bold"
             android:lineSpacingExtra="3.5sp"
+            android:maxLines="1"
+            android:textColor="@color/primary_text"
             android:textSize="16.5sp"
             tools:text="Your Name" />
 
@@ -31,7 +34,136 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
+        android:background="#F2F2F2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/droid_sans"
+                        android:lineSpacingExtra="3.5sp"
+                        android:text="P"
+                        android:textColor="@color/primary_text"
+                        android:textSize="16.5sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F2F2" />
+
+                    <TextView
+                        android:id="@+id/total_present"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/droid_sans_bold"
+                        android:lineSpacingExtra="3.5sp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="16.5sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#F2F2F2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/droid_sans"
+                        android:lineSpacingExtra="3.5sp"
+                        android:text="A"
+                        android:textColor="@color/primary_text"
+                        android:textSize="16.5sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F2F2F2" />
+
+                    <TextView
+                        android:id="@+id/total_absent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/droid_sans_bold"
+                        android:lineSpacingExtra="3.5sp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="16.5sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#F2F2F2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/droid_sans"
+                        android:lineSpacingExtra="3.5sp"
+                        android:text="Total"
+                        android:textColor="@color/primary_text"
+                        android:textSize="16.5sp" />
+
+                    <TextView
+                        android:id="@+id/total_average"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/droid_sans_bold"
+                        android:lineSpacingExtra="3.5sp"
+                        android:textColor="@color/primary_text"
+                        android:textSize="16.5sp"
+                        tools:text="0.0%" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
         android:background="#F2F2F2" />
 
     <androidx.recyclerview.widget.RecyclerView

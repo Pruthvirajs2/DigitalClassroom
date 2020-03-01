@@ -40,6 +40,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -176,6 +177,10 @@ public class attendanceFragment extends Fragment {
         });
 
 
+        final TextView mTextPresent = (TextView) dialog.findViewById(R.id.total_present);
+        final TextView mTextAbsent = (TextView) dialog.findViewById(R.id.total_absent);
+        final TextView mTextTotal = (TextView) dialog.findViewById(R.id.total_average);
+
         final RecyclerView attendanceRecyclerView = (RecyclerView) dialog.findViewById(R.id.attendance_sheet);
 
         attendanceRecyclerView.setHasFixedSize(true);
@@ -213,6 +218,45 @@ public class attendanceFragment extends Fragment {
                     attendanceRecyclerView.setAdapter(attendanceAdapter);
                     attendanceAdapter.notifyDataSetChanged();
 
+                    Log.d("at_", "total: " + mAttendances.size());
+
+                    List<String> mPresentDay = new ArrayList<>();
+
+                    for (Attendance attendance : mAttendances) {
+                        if (attendance.isCheckAttendance()) {
+                            mPresentDay.add(attendance.getId());
+                        }
+                    }
+
+                    long absent = mAttendances.size() - mPresentDay.size();
+
+                    Log.d("at_", "total: Present " + mPresentDay.size());
+                    Log.d("at_", "total: Absent " + absent);
+
+                    long presentDays = mPresentDay.size();
+                    long absentDays = mAttendances.size() - mPresentDay.size();
+                    long attend = 100 - absentDays;
+
+                    mTextPresent.setText(String.valueOf(presentDays));
+                    mTextAbsent.setText(String.valueOf(absentDays));
+                    mTextTotal.setText(String.valueOf(attend));
+
+                    Log.d("at_", "Calculation: Absent " + absentDays + "%");
+                    Log.d("at_", "Calculation: attendance " + attend + "%");
+
+                    /*
+Total Contact Hour : 36
+Day Absent : 1 (Credit Hour) x 1 Day = 1 Contact Hour (Absent)
+Contact Hour Recorded : 1
+Total Contact Hour : 36
+---------------------------------------------
+Calculation
+1/36 x 100% = 2.778%
+100% - 2.778% = 97%
+
+System will automatically deduct 2.778% from 100%. Therefore, student's attendance shown as 97%.
+
+*/
 
                 }
 

@@ -241,8 +241,8 @@ public class FeedsActivity extends AppCompatActivity {
                 int selectedId = fileRadioGroup.getCheckedRadioButtonId();
                 fileRadioButton = (RadioButton) findViewById(selectedId);
                 if (selectedId == -1) {
-                    checkStatus = "";
-                    Toast.makeText(FeedsActivity.this, "Nothing selected", Toast.LENGTH_SHORT).show();
+                   // checkStatus = "";
+                 //   Toast.makeText(FeedsActivity.this, "Nothing selected", Toast.LENGTH_SHORT).show();
                 } else {
                     if (fileRadioButton.getText().equals("Gallery")) {
                         checkStatus = "Gallery";

@@ -47,6 +47,9 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
                 .centerCrop()
                 .into(holder.profileIcon);
 
+
+
+
     }
 
     @Override

@@ -30,6 +30,7 @@
             android:fontFamily="@font/droid_sans"
             android:lineSpacingExtra="3.5sp"
             android:text="Create Notes"
+            android:textColor="@color/primary_text"
             android:textSize="16.5sp" />
 
         <Button
@@ -40,7 +41,8 @@
             android:layout_alignParentEnd="true"
             android:scaleType="center"
             android:text="Post"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/primary_text" />
 
     </RelativeLayout>
 
@@ -111,6 +113,7 @@
                 android:button="@android:color/transparent"
                 android:fontFamily="@font/droid_sans"
                 android:gravity="center"
+                android:textColor="@color/primary_text"
                 android:text="Gallery" />
 
             <RadioButton
@@ -119,6 +122,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="2.5dp"
                 android:layout_weight="1"
+                android:textColor="@color/primary_text"
                 android:background="@drawable/custom_radio_background"
                 android:button="@android:color/transparent"
                 android:fontFamily="@font/droid_sans"
