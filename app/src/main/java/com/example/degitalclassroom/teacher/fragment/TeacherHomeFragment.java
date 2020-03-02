@@ -121,24 +121,24 @@ public class TeacherHomeFragment extends Fragment {
     private ArrayList<Dashboard> getBoardItem() {
 
         Dashboard dashboard = new Dashboard(
-                "1", "Students", R.drawable.students
+                "1", "Students", R.drawable.ic_records
         );
         mDashboards.add(dashboard);
 
         dashboard = new Dashboard(
-                "2", "Classroom", R.drawable.classroom
+                "2", "Classroom", R.drawable.ic_pen
         );
         mDashboards.add(dashboard);
         dashboard = new Dashboard(
-                "3", "Generate Attendance", R.drawable.attendance
+                "3", "Generate Attendance", R.drawable.ic_stickynotes
         );
         mDashboards.add(dashboard);
         dashboard = new Dashboard(
-                "4", "Subjects", R.drawable.subjects
+                "4", "Subjects", R.drawable.ic_library
         );
         mDashboards.add(dashboard);
         dashboard = new Dashboard(
-                "5", "Attendance Report", R.drawable.subjects
+                "5", "Attendance Report", R.drawable.ic_calender
         );
         mDashboards.add(dashboard);
 

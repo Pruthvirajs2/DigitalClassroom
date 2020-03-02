@@ -3,16 +3,12 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_sketch"
+        android:icon="@drawable/ic_home_run"
         android:title="" />
 
     <item
         android:id="@+id/navigation_document"
-        android:icon="@drawable/ic_overflowing"
+        android:icon="@drawable/ic_update_folder"
         android:title="" />
 
-    <!--<item
-        android:id="@+id/navigation_event"
-        android:icon="@drawable/ic_event"
-        android:title="Event" />-->
 </menu>
