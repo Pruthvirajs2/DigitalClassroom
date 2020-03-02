@@ -25,6 +25,7 @@ import com.example.degitalclassroom.helper.SessionManager;
 import com.example.degitalclassroom.interfaces.OnItemClickListener;
 import com.example.degitalclassroom.model.Dashboard;
 import com.example.degitalclassroom.teacher.activity.AddClassActivity;
+import com.example.degitalclassroom.ui.employee.AttendanceReportActivity;
 import com.example.degitalclassroom.ui.employee.StudentAttendanceActivity;
 import com.example.degitalclassroom.ui.student.StudentsActivity;
 import com.example.degitalclassroom.ui.TeacherProfileActivity;
@@ -96,6 +97,9 @@ public class TeacherHomeFragment extends Fragment {
                     case 3:
                         startActivity(new Intent(getContext(), SubjectActivity.class));
                         break;
+                    case 4:
+                        startActivity(new Intent(getContext(), AttendanceReportActivity.class));
+                        break;
 
                 }
 
@@ -126,11 +130,15 @@ public class TeacherHomeFragment extends Fragment {
         );
         mDashboards.add(dashboard);
         dashboard = new Dashboard(
-                "3", "Attendance", R.drawable.attendance
+                "3", "Generate Attendance", R.drawable.attendance
         );
         mDashboards.add(dashboard);
         dashboard = new Dashboard(
                 "4", "Subjects", R.drawable.subjects
+        );
+        mDashboards.add(dashboard);
+        dashboard = new Dashboard(
+                "5", "Attendance Report", R.drawable.subjects
         );
         mDashboards.add(dashboard);
 

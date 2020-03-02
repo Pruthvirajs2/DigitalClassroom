@@ -345,9 +345,9 @@ public class FeedsActivity extends AppCompatActivity {
      */
     private void startCropImageActivity(Uri imageUri) {
         CropImage.activity(imageUri)
-                .setAspectRatio(1, 1)
+                //.setAspectRatio(1, 1)
                 .setGuidelines(CropImageView.Guidelines.ON)
-                .setMultiTouchEnabled(true)
+                .setMultiTouchEnabled(false)
                 .start(this);
     }
 

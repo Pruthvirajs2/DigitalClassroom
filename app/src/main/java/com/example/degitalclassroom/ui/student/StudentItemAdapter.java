@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.degitalclassroom.R;
+import com.example.degitalclassroom.interfaces.OnItemClickListener;
 import com.example.degitalclassroom.model.User;
 
 import java.util.ArrayList;
@@ -20,10 +21,12 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
 
     ArrayList<User> mUsers = new ArrayList<>();
     Context mContext;
+    OnItemClickListener mListener;
 
-    public StudentItemAdapter(ArrayList<User> mUsers, Context mContext) {
+    public StudentItemAdapter(ArrayList<User> mUsers, Context mContext, OnItemClickListener mListener) {
         this.mUsers = mUsers;
         this.mContext = mContext;
+        this.mListener = mListener;
     }
 
     @NonNull
@@ -34,7 +37,7 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StdudentViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull StdudentViewHolder holder, final int position) {
 
         User user = mUsers.get(position);
 
@@ -47,7 +50,12 @@ public class StudentItemAdapter extends RecyclerView.Adapter<StudentItemAdapter.
                 .centerCrop()
                 .into(holder.profileIcon);
 
-
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onItemClick(v, position);
+            }
+        });
 
 
     }

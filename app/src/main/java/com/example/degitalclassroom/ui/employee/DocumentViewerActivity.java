@@ -18,18 +18,25 @@ import android.widget.Toast;
 
 import com.example.degitalclassroom.R;
 import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
+import com.shockwave.pdfium.PdfDocument;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 public class DocumentViewerActivity extends AppCompatActivity {
 
     String link = "";
     PDFView pdfView;
     ImageView closeImageView;
+    Integer pageNumber = 0;
+    String pdfFileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +53,7 @@ public class DocumentViewerActivity extends AppCompatActivity {
         });
 
         if (isConnected()) {
-          //  Toast.makeText(getApplicationContext(), "Internet Connected", Toast.LENGTH_SHORT).show();
+            //  Toast.makeText(getApplicationContext(), "Internet Connected", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
 
@@ -93,7 +100,7 @@ public class DocumentViewerActivity extends AppCompatActivity {
         return connected;
     }
 
-    class RetrievePDFStream extends AsyncTask<String, Void, InputStream> {
+    class RetrievePDFStream extends AsyncTask<String, Void, InputStream> implements OnPageChangeListener, OnLoadCompleteListener {
 
         ProgressDialog progressDialog;
 
@@ -126,8 +133,39 @@ public class DocumentViewerActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(InputStream inputStream) {
-            pdfView.fromStream(inputStream).load();
+            pdfView.fromStream(inputStream)
+                    .defaultPage(pageNumber)
+                    .enableSwipe(true)
+                    .swipeHorizontal(false)
+                    .onPageChange(this)
+                    .enableAnnotationRendering(true)
+                    .onLoad(this)
+                    .scrollHandle(new DefaultScrollHandle(DocumentViewerActivity.this))
+                    .load();
             progressDialog.dismiss();
+        }
+
+        @Override
+        public void onPageChanged(int page, int pageCount) {
+            pageNumber = page;
+            setTitle(String.format("%s %s / %s", pdfFileName, page + 1, pageCount));
+        }
+
+        @Override
+        public void loadComplete(int nbPages) {
+            PdfDocument.Meta meta = pdfView.getDocumentMeta();
+            printBookmarksTree(pdfView.getTableOfContents(), "-");
+
+        }
+
+        public void printBookmarksTree(List<PdfDocument.Bookmark> tree, String sep) {
+            for (PdfDocument.Bookmark b : tree) {
+
+                Log.e("DOCUMENT---", String.format("%s %s, p %d", sep, b.getTitle(), b.getPageIdx()));
+                if (b.hasChildren()) {
+                    printBookmarksTree(b.getChildren(), sep + "-");
+                }
+            }
         }
     }
 

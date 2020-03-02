@@ -48,7 +48,7 @@ public class FacultyHomeAdapter extends RecyclerView.Adapter<FacultyHomeAdapter.
         holder.nName.setText(user.getUserid());
         holder.nSubject.setText(user.getEmail());
         holder.nTime.setText(user.getContact());
-        holder.nTitle.setText(user.getAddress());
+        holder.nTitle.setText(user.getClassName());
 
         Glide.with(context)
                 .load(R.drawable.avatar)

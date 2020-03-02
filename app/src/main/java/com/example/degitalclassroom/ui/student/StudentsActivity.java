@@ -18,6 +18,7 @@ import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.activity.DetailsPdfActivity;
 import com.example.degitalclassroom.custom.DividerItemDecoration;
 import com.example.degitalclassroom.helper.SessionManager;
+import com.example.degitalclassroom.interfaces.OnItemClickListener;
 import com.example.degitalclassroom.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -101,7 +102,12 @@ public class StudentsActivity extends AppCompatActivity {
 
                                 }
 
-                                studentItemAdapter = new StudentItemAdapter(mUserArrayList, StudentsActivity.this);
+                                studentItemAdapter = new StudentItemAdapter(mUserArrayList, StudentsActivity.this, new OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(View view, int position) {
+
+                                    }
+                                });
                                 mStudentRecyclerView.setAdapter(studentItemAdapter);
                                 studentItemAdapter.notifyDataSetChanged();
 

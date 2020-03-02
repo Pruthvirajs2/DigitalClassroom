@@ -95,7 +95,6 @@ public class StudentAttendanceActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-
                 if (dataSnapshot.exists()) {
                     final User currentUser = dataSnapshot.getValue(User.class);
 
@@ -224,7 +223,13 @@ public class StudentAttendanceActivity extends AppCompatActivity {
                         }
                     }
 
-                    attendanceAdapter = new ClassAttendanceAdapter(mStudents, context);
+                    attendanceAdapter = new ClassAttendanceAdapter(mStudents, context, new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+
+                        }
+                    });
+
                     recyclerView.setAdapter(attendanceAdapter);
                     attendanceAdapter.notifyDataSetChanged();
 
@@ -294,7 +299,7 @@ public class StudentAttendanceActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(context, "Wow!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "Today's Attendance Genearted.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

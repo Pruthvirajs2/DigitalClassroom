@@ -25,10 +25,12 @@ public class ClassAttendanceAdapter extends RecyclerView.Adapter<ClassAttendance
 
     public ArrayList<User> mStudents = new ArrayList<>();
     public Context mContext;
+    OnItemClickListener mListener;
 
-    public ClassAttendanceAdapter(ArrayList<User> mStudents, Context mContext) {
+    public ClassAttendanceAdapter(ArrayList<User> mStudents, Context mContext, OnItemClickListener mListener) {
         this.mStudents = mStudents;
         this.mContext = mContext;
+        this.mListener = mListener;
     }
 
 
@@ -40,7 +42,7 @@ public class ClassAttendanceAdapter extends RecyclerView.Adapter<ClassAttendance
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ClassViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ClassViewHolder holder, final int position) {
         holder.setIsRecyclable(false);
 
         final User user = mStudents.get(position);
@@ -60,6 +62,12 @@ public class ClassAttendanceAdapter extends RecyclerView.Adapter<ClassAttendance
                 .load(R.drawable.avatar)
                 .into(holder.profileIcon);
 
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onItemClick(v, position);
+            }
+        });
 
     }
 

@@ -19,7 +19,7 @@ public class SubjectItemAdapter extends RecyclerView.Adapter<SubjectItemAdapter.
 
     ArrayList<Subject> mSubjects = new ArrayList<>();
     Context mContext;
-     OnItemClickListener mListener;
+    OnItemClickListener mListener;
 
 
     public SubjectItemAdapter(ArrayList<Subject> mSubjects, Context mContext, OnItemClickListener mListener) {

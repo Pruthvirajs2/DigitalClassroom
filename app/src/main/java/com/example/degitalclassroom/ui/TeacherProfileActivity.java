@@ -33,7 +33,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
     private SessionManager session;
 
     private LinearLayout profile;
-    private TextView nName, nEmail, nCity;
+    private TextView nName, nEmail, nCity, className;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +79,7 @@ public class TeacherProfileActivity extends AppCompatActivity {
                                 Log.d(TAG, "onDataChange: " + user.toString());
                                 nName.setText(user.getFirst_name() + " " + user.getLast_name());
                                 nEmail.setText(user.getEmail());
-                                nCity.setText(user.getAddress());
+                                nCity.setText(user.getClassName());
                             }
                         }
                     }

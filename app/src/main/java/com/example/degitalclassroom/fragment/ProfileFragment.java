@@ -20,6 +20,7 @@ import com.example.degitalclassroom.adapter.PeopleProfileAdapter;
 import com.example.degitalclassroom.adapter.TeacherAdapter;
 import com.example.degitalclassroom.custom.DividerItemDecoration;
 import com.example.degitalclassroom.helper.SessionManager;
+import com.example.degitalclassroom.interfaces.OnItemClickListener;
 import com.example.degitalclassroom.model.Faculty;
 import com.example.degitalclassroom.model.User;
 import com.example.degitalclassroom.ui.LoginActivity;
@@ -144,7 +145,12 @@ public class ProfileFragment extends Fragment {
                         }
                     }
 
-                    studentItemAdapter = new StudentItemAdapter(mUserArrayList, getContext());
+                    studentItemAdapter = new StudentItemAdapter(mUserArrayList, getContext(), new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+
+                        }
+                    });
                     nStudentRecycler.setAdapter(studentItemAdapter);
                     studentItemAdapter.notifyDataSetChanged();
 

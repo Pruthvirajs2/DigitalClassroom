@@ -2,6 +2,7 @@ package com.example.degitalclassroom.ui.employee;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.degitalclassroom.R;
 import com.example.degitalclassroom.model.Feeds;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.FeedViewHolder> {
@@ -51,7 +53,7 @@ public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.FeedVi
             holder.thumbnail.setVisibility(View.VISIBLE);
             Glide.with(mContext)
                     .load(feeds.getThumbnail())
-                    .centerCrop()
+                   // .centerCrop()
                     .placeholder(R.drawable.unavailable)
                     .into(holder.thumbnail);
 
@@ -64,8 +66,12 @@ public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.FeedVi
             holder.documentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mContext.startActivity(new Intent(mContext, DocumentViewerActivity.class)
-                            .putExtra("link", feeds.getThumbnail()));
+                    try {
+                        mContext.startActivity(new Intent(mContext, DocumentViewerActivity.class)
+                                .putExtra("link", feeds.getThumbnail()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             });
 
